@@ -5,6 +5,10 @@ import RegisterModal from "./components/modals/RegisterModal";
 import ToastProvider from "./provider/ToastProvider";
 import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
+import RentModal from "./components/modals/RentModal";
+import SearchModal from "./components/modals/SearchModal";
+import ClientOnly from "./components/ClientOnly";
+
 const font = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
@@ -23,10 +27,14 @@ export default async function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ToastProvider />
+        <SearchModal />
         <LoginModal />
+        <RentModal />
         <RegisterModal />
-        <Navbar currentUser={currentUser} />
-        {children}
+        <ClientOnly>
+          <Navbar currentUser={currentUser} />
+        </ClientOnly>
+        <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>
   );

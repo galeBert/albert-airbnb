@@ -22,8 +22,6 @@ export default function Input({
   required,
   type,
 }: InputProps) {
-  console.log(errors[id], errors);
-
   return (
     <div className="w-full relative">
       {formatPrice ? (

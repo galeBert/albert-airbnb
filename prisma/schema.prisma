@@ -28,20 +28,19 @@ model User {
 
 model Account {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  userid String @db.ObjectId
-  type String
-  provider String
-  providerAccountId String
-  refresh_token String? @db.String
-  access_token String? @db.String
-  expired_at Int?
-  token_type String?
-  scope String?
-  id_token String? @db.String
-  session_state String?
+  userId             String   @db.ObjectId
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.String
+  access_token       String?  @db.String
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.String
+  session_state      String?
 
-
-  user User @relation(fields: [userid], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -52,7 +51,7 @@ model Listing {
   description String
   imageSrc String
   createdAt DateTime @default(now())
-  catagory String
+  category String
   roomCount Int
   bathroomCount Int
   guestCount Int
@@ -61,7 +60,7 @@ model Listing {
   price Int
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  reservation Reservation[]
+  reservations Reservation[]
 }
 
 model Reservation {

@@ -1,6 +1,7 @@
 "use client";
 
 import Container from "../Container";
+import Catagories from "./Categories";
 import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
@@ -11,8 +12,6 @@ interface NavbarProps {
 }
 
 export default function Navbar({ currentUser }: NavbarProps) {
-  console.log(currentUser);
-
   return (
     <div className="w-full fixed bg-white z-10 shadow-sm">
       <div className="py-4 border-b-[1px]">
@@ -24,6 +23,7 @@ export default function Navbar({ currentUser }: NavbarProps) {
           </div>
         </Container>
       </div>
+      <Catagories />
     </div>
   );
 }
