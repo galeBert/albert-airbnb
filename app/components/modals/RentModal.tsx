@@ -94,7 +94,9 @@ export default function RentModal() {
         setStep(STEPS.CATEGORY);
         rentModal.onClose();
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
+
         toast.error("Something went wrong");
       })
       .finally(() => {
